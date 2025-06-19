@@ -66,23 +66,23 @@ No entanto, da forma que o autor implementou, o teste falha ao capturar a exceç
 A forma correta de realizar esse tipo de verificação no pytest é utilizando o contexto **with** pytest.raises(...), que garante que o teste passa se e somente se a exceção esperada ocorrer.
 
 ## 2.1  <a name="_nbt56v3gam2w"></a>**Reprodução do código**
-![](Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.002.png)
+![](imgs/Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.002.png)
 
 ## 2.2  <a name="_lsg8uh9cnjvg"></a>**Resposta aceita**
 Na resposta aceita, recomenda-se o uso **pytest.raises(Exception)** para levantar a exceção correta. Ainda é explicado que o uso do método **raises()** gera uma exceção com mais informações.
 
 Exemplo do uso dado na resposta: 
 
-![](Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.003.png)
+![](imgs/Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.003.png)
 
 
 ## 2.3 <a name="_4yt9dvo2uzd"></a>**Outras respostas não aceitas**
    ### 2.3.1  <a name="_wlc9fuqh60qz"></a>**Resposta 1:**
-![](Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.004.png)
+![](imgs/Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.004.png)
 
 A resposta está quase correta ao indicar o uso de pytest.raises(), que de fato é a maneira apropriada de verificar se uma exceção específica foi lançada durante a execução de um teste. No entanto, a menção ao uso de pytest.mark.xfail não contribui para a resolução do problema apresentado, visto que serve para marcar testes que são esperados falhar — normalmente por conta de bugs conhecidos ou comportamentos ainda não implementados — e não para verificar o lançamento de exceções de forma precisa. O uso de xfail nesse contexto apenas permite que o teste falhe sem impactar o resultado geral da suíte de testes, o que pode mascarar problemas reais.
 ### <a name="_vo4p77arzyip"></a>**2.3.2. Resposta 2**
-![](Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.005.png)
+![](imgs/Aspose.Words.3ea6bbbd-b8da-498b-87e9-ff9d07959ede.005.png)
 
 Esta resposta demonstra pouca clareza com o uso de assert False e assert True dentro de try e except, não deixando explícito qual exceção esperada, tornando o teste menos legível. Não faz proveito dos recursos do pytest, que possui o método recomendado pytest.raises(), que descreve a exceção esperada e fornece relatórios detalhados automaticamente.
 
